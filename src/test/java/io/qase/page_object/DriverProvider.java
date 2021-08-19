@@ -25,8 +25,8 @@ public class DriverProvider {
         return driver;
     }
 
-    public static void quit() {
-        driver.quit();
-        driver = null;
-    }
+//    public static void quit() {
+//        driver.quit();
+//        driver = null;
+//    }
 }
