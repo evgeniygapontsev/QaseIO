@@ -8,4 +8,5 @@ public abstract class BasePage {
     public BasePage(){
         driver = DriverProvider.get();
     }
+
 }

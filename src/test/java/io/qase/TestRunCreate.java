@@ -22,15 +22,19 @@ public class TestRunCreate extends BaseTest {
         newProjectPage.newProject("TestQase Testing");
 
         TestCaseData testCaseData = new TestCaseData(
+                "QaseOne",
+                TestRepositoryPage.Status.ACTUAL,
+                "We can authorize on page https://qase.io/login",
+                TestRepositoryPage.Severity.BLOCKER,
                 asList(
                         new StepData("Step1", "", "step1 completed"),
                         new StepData("Step2", "step 2 data", "step2 completed")
                 )
         );
 
+
         TestRepositoryPage testRepositoryPage = new TestRepositoryPage();
-        testRepositoryPage.createNewCase("QaseOne");
-        testRepositoryPage.createCaseSteps(testCaseData);
+        testRepositoryPage.createNewCase(testCaseData);
         testRepositoryPage.createTestRun();
 
         TestRunsPage testRunsPage = new TestRunsPage();

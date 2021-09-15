@@ -7,10 +7,10 @@ import org.testng.annotations.Test;
 
 import static java.util.Arrays.asList;
 
-public class LoginAndNewProjectTest extends BaseTest {
+public class AddStepsTest extends BaseTest{
 
     @Test
-    public void loginAndNewProjectTest() {
+    public void addStepsTest() {
 
         LoginPage loginPage = new LoginPage();
         loginPage.login("gapontsev91@gmail.com", "pass1234");
@@ -19,7 +19,7 @@ public class LoginAndNewProjectTest extends BaseTest {
         projectsPage.createNewProject();
 
         NewProjectPage newProjectPage = new NewProjectPage();
-        newProjectPage.newProject("Default Testing");
+        newProjectPage.newProject("TestQase Testing");
 
         TestCaseData testCaseData = new TestCaseData(
                 "QaseOne",
@@ -34,11 +34,6 @@ public class LoginAndNewProjectTest extends BaseTest {
 
         TestRepositoryPage testRepositoryPage = new TestRepositoryPage();
         testRepositoryPage.createNewCase(testCaseData);
-        testRepositoryPage.deleteCase();
-        testRepositoryPage.openSettingsPage();
-
-        SettingsPage settingsPage = new SettingsPage();
-        settingsPage.deleteProject();
 
     }
 }

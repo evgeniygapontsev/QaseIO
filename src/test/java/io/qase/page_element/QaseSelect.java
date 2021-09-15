@@ -1,29 +1,25 @@
 package io.qase.page_element;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import ru.yandex.qatools.htmlelements.annotations.Name;
+import ru.yandex.qatools.htmlelements.element.HtmlElement;
 
 import java.util.List;
 
-public class QaseSelect {
+@Name("Qase Select")
+public class QaseSelect extends HtmlElement{
+    @Name("menuElement")
+    @FindBy(xpath = "./div")
+    private HtmlElement menuElement;
+    @Name("options")
+    @FindBy(xpath = ".//*[contains(@id, 'option')]")
+    private List<HtmlElement> options;
 
-    private final WebDriver driver;
-    private final By selfLocator;
-    private final By optionsXpath = By.xpath(".//*[contains(@id, 'option')]");
-
-
-    public QaseSelect(WebDriver driver, By selfLocator) {
-        this.driver = driver;
-        this.selfLocator = selfLocator;
-    }
 
     public void selectByVisibleText(String text) {
-        WebElement self = driver.findElement(selfLocator);
-        WebElement menuElement = self.findElement(By.xpath("./div"));
         menuElement.click();
 
-        List<WebElement> options = self.findElements(optionsXpath);
         WebElement targetOption = null;
         for (WebElement element :
                 options) {
